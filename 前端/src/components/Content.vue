@@ -137,7 +137,7 @@
                   </template>
                 </el-table-column>
 <!--               <el-table-column label="目标大小" width="300px">
-                  <template slot-scope="scope">
+                  <template #default="scope">
                     <span>{{ scope.row[0] }}</span>
                   </template>
                 </el-table-column> -->
@@ -658,4 +658,3 @@ div {
 }
 
 </style>
-

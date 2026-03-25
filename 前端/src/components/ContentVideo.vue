@@ -76,9 +76,7 @@
 					  src="https://files.vidstack.io/sprite-fight/720p.mp4"
 					  poster="https://files.vidstack.io/sprite-fight/poster.webp"
 					/> -->
-					<template #error>
-					  <div class="error" v-show="!uploaded">{{ wait_return }}</div>
-					</template>
+					<div class="error" v-show="!uploaded">{{ wait_return }}</div>
 			  </div>
 			  <div class="img_info_1" style="border-radius: 0 0 5px 5px;width: 30vw;">
 			    <span style="color: white; letter-spacing: 4px;width: 30vw;">检测结果</span>
@@ -688,4 +686,3 @@ div {
     background-color: #f2f2f2;
 }
 </style>
-
