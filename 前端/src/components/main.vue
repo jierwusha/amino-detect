@@ -48,10 +48,6 @@
 	import {
 		EventBus
 	} from '../eventBus.js';
-
-	import {
-		Select
-	} from 'element-ui';
 	export default {
 		name: "main",
 		data() {
@@ -118,7 +114,7 @@
 				}, 200); // 延迟0.2秒  
 			},
 			triggerBoxSelect(index) {
-				EventBus.$emit('boxSelect', index);
+				EventBus.emit('boxSelect', index);
 			},
 
 		},

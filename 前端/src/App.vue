@@ -43,15 +43,14 @@
 				this.selectedMenu = index;
 			},
 		},
-		mounted() {
-			EventBus.$on('boxSelect', this.handleMenuSelect);
+	mounted() {
+			EventBus.on('boxSelect', this.handleMenuSelect);
 		},
-		beforeDestroy() {
-			EventBus.$off('boxSelect', this.handleMenuSelect);
+		beforeUnmount() {
+			EventBus.off('boxSelect', this.handleMenuSelect);
 		},
 	};
 </script>
 
-<style scope="this api replaced by slot-scope in 2.5.0+">
+<style scoped>
 </style>
-

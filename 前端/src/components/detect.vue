@@ -38,13 +38,13 @@
 			<div class="demo-image__preview1">
 			  <div v-loading="loading" element-loading-text="上传中"  element-loading-spinner="el-icon-loading" >
 			    
-			      <div slot="error">
-			        <div slot="placeholder" class="error">
+			      <template #error>
+			        <div class="error">
 			          <el-button  v-show="showbutton" type="primary" icon="el-icon-video-camera"   class="download_bt" v-on:click="activate" >
 						<div >启用检测</div>
 			          </el-button>
 			        </div>
-			      </div>
+			      </template>
 			    
 			  </div>
 			</div>
@@ -385,5 +385,4 @@ div {
 }
 
 </style>
-
 

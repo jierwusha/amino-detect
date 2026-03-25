@@ -103,10 +103,10 @@
 			},
 		},
 		mounted() {
-			EventBus.$on('boxSelect', this.handleMenuSelect);
+			EventBus.on('boxSelect', this.handleMenuSelect);
 		},
-		beforeDestroy() {
-			EventBus.$off('boxSelect', this.handleMenuSelect);
+		beforeUnmount() {
+			EventBus.off('boxSelect', this.handleMenuSelect);
 		},
 	};
 </script>

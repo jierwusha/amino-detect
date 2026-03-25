@@ -2,7 +2,7 @@
   <div id="Content">
     <el-dialog
       title="AI预测中"
-      :visible.sync="dialogTableVisible"
+      v-model="dialogTableVisible"
       :show-close="false"
       :close-on-press-escape="false"
       :append-to-body="true"
@@ -10,7 +10,9 @@
       :center="true"
     >
       <el-progress :percentage="percentage"></el-progress>
-      <span slot="footer" class="dialog-footer">请耐心等待约10秒钟</span>
+      <template #footer>
+        <span class="dialog-footer">请耐心等待约10秒钟</span>
+      </template>
     </el-dialog>
 
     <div id="CT"  style="display: flex; ">
@@ -74,9 +76,9 @@
 					  src="https://files.vidstack.io/sprite-fight/720p.mp4"
 					  poster="https://files.vidstack.io/sprite-fight/poster.webp"
 					/> -->
-					<div slot="error" v-show="!uploaded">
-					  <div slot="placeholder" class="error">{{ wait_return }}</div>
-					</div>
+					<template #error>
+					  <div class="error" v-show="!uploaded">{{ wait_return }}</div>
+					</template>
 			  </div>
 			  <div class="img_info_1" style="border-radius: 0 0 5px 5px;width: 30vw;">
 			    <span style="color: white; letter-spacing: 4px;width: 30vw;">检测结果</span>
@@ -90,26 +92,28 @@
             <div id="info_patient"  >
               <!-- 卡片放置表格 -->
               <el-card style="border-radius: 8px">
-                <div slot="header" class="clearfix">
-                  <span>检测目标</span>
-                  <el-button
-                    style="margin: 35px 35px 0 35px"
-                    type="primary"
-                    icon="el-icon-upload"
-                    class="download_bt"
-                    v-on:click="true_upload2"
-                  >
-                    选择视频
-                    <input
-                      ref="upload2"
-                      style="display: none"
-                      name="file"
-                      type="file"
-					  accept="video/*"
-                      @change="update"
-                    />
-                  </el-button>
-                </div>
+                <template #header>
+                  <div class="clearfix">
+                    <span>检测目标</span>
+                    <el-button
+                      style="margin: 35px 35px 0 35px"
+                      type="primary"
+                      icon="el-icon-upload"
+                      class="download_bt"
+                      v-on:click="true_upload2"
+                    >
+                      选择视频
+                      <input
+                        ref="upload2"
+                        style="display: none"
+                        name="file"
+                        type="file"
+					    accept="video/*"
+                        @change="update"
+                      />
+                    </el-button>
+                  </div>
+                </template>
 				
 				<el-tabs v-model="activeName">
 				           <el-tab-pane label="检测到的目标" name="first" style="z-index: 0;">
@@ -125,17 +129,17 @@
 				                lazy
 				              >
 				                <el-table-column label="序号" width="350px">
-				                  <template slot-scope="scope">
+				                  <template #default="scope">
 				                    <span>{{ scope.row[0] }}</span>
 				                  </template>
 				                </el-table-column>
 				              <el-table-column label="检测结果" width="350px">
-				                  <template slot-scope="scope">
+				                  <template #default="scope">
 				                    <span>{{ scope.row[1] }}</span>
 				                  </template>
 				                </el-table-column>
 				                <el-table-column label="时间" width="350px">
-				                  <template slot-scope="scope">
+				                  <template #default="scope">
 				                    <span>{{ scope.row[2] }}</span>
 				                  </template>
 				                </el-table-column>
@@ -684,5 +688,4 @@ div {
     background-color: #f2f2f2;
 }
 </style>
-
 
