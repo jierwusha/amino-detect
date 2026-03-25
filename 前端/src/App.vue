@@ -43,7 +43,7 @@
 				this.selectedMenu = index;
 			},
 		},
-	mounted() {
+		mounted() {
 			EventBus.on('boxSelect', this.handleMenuSelect);
 		},
 		beforeUnmount() {
